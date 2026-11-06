@@ -1,0 +1,125 @@
+name: Build and release
+
+# Every push to preview publishes :edge images. A v* tag publishes images for
+# that version and a GitHub Release holding what a server needs to run them.
+on:
+  push:
+    branches:
+      - preview
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # A newer push supersedes an edge build, but a release must always finish.
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}/plane
+
+jobs:
+  images:
+    name: Image ${{ matrix.name }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: frontend
+            context: .
+            dockerfile: apps/web/Dockerfile.web
+          - name: space
+            context: .
+            dockerfile: apps/space/Dockerfile.space
+          - name: admin
+            context: .
+            dockerfile: apps/admin/Dockerfile.admin
+          - name: live
+            context: .
+            dockerfile: apps/live/Dockerfile.live
+          - name: backend
+            context: apps/api
+            dockerfile: apps/api/Dockerfile.api
+          - name: proxy
+            context: apps/proxy
+            dockerfile: apps/proxy/Dockerfile.ce
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Choose image tags
+        id: tags
+        env:
+          IMAGE: ${{ env.IMAGE_PREFIX }}-${{ matrix.name }}
+          REF_NAME: ${{ github.ref_name }}
+          IS_TAG: ${{ startsWith(github.ref, 'refs/tags/') }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ "$IS_TAG" = "true" ]; then
+            version="$REF_NAME"
+            tags="$IMAGE:$REF_NAME,$IMAGE:latest"
+          else
+            version="sha-${SHA::12}"
+            tags="$IMAGE:edge,$IMAGE:$version"
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.tags.outputs.tags }}
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ steps.tags.outputs.version }}
+            org.opencontainers.image.licenses=AGPL-3.0-only
+
+  release:
+    name: GitHub Release
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: images
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check the deploy bundle
+        env:
+          APP_RELEASE: ${{ github.ref_name }}
+        run: |
+          bash -n deployments/server/install.sh
+          docker compose -f deployments/cli/community/docker-compose.yml \
+            --env-file deployments/cli/community/variables.env config --quiet
+
+      - uses: softprops/action-gh-release@v2.6.1
+        with:
+          generate_release_notes: true
+          make_latest: "true"
+          files: |
+            deployments/cli/community/docker-compose.yml
+            deployments/cli/community/variables.env
+            deployments/server/install.sh
