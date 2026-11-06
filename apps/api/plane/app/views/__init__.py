@@ -11,6 +11,7 @@ from .project.base import (
     ProjectArchiveUnarchiveEndpoint,
 )
 
+from .project.git_connection import GitConnectionEndpoint, GitWebhookEndpoint
 from .project.invite import (
     UserProjectInvitationsViewset,
     ProjectInvitationsViewset,
@@ -120,6 +121,7 @@ from .issue.base import (
     IssueViewSet,
     ProjectUserDisplayPropertyEndpoint,
     BulkDeleteIssuesEndpoint,
+    BulkIssueOperationsEndpoint,
     DeletedIssuesListViewSet,
     IssuePaginatedViewSet,
     IssueDetailEndpoint,

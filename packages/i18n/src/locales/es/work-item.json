@@ -346,9 +346,17 @@
         "message": "El cambio de estado no está permitido para algunos elementos de trabajo. Asegúrese de que el cambio de estado esté permitido."
       }
     },
-    "upgrade_banner": {
-      "message": "Cambie el estado, la prioridad y más para varios elementos de trabajo a la vez. Ahorre en promedio tres minutos por operación.",
-      "cta": "Actualizar a One"
+    "toolbar": {
+      "label": "Acciones masivas",
+      "selected": "{count, plural, one {# elemento de trabajo seleccionado} other {# elementos de trabajo seleccionados}}",
+      "clear_selection": "Borrar selección",
+      "single_project_hint": "Seleccione elementos de trabajo de un solo proyecto para cambiar el estado, los responsables o las etiquetas",
+      "updated": "Elementos de trabajo actualizados",
+      "archived": "Elementos de trabajo archivados",
+      "deleted": "Elementos de trabajo eliminados",
+      "delete_title": "Eliminar elementos de trabajo",
+      "delete_message": "{count, plural, one {# elemento de trabajo se eliminará de forma permanente. Esta acción no se puede deshacer.} other {# elementos de trabajo se eliminarán de forma permanente. Esta acción no se puede deshacer.}}",
+      "update_failed": "No se pueden actualizar elementos de trabajo"
     }
   },
   "recurring_work_items": {

@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git 集成",
+      "description": "连接代码仓库后，提及工作项键（例如 {identifier}-12）的提交和拉取请求将显示在该工作项上。",
+      "connect": "连接仓库",
+      "provider": "提供商",
+      "repository_url": "仓库 URL",
+      "merged_state": "合并后的状态",
+      "merged_state_hint": "可选。已合并的拉取请求中提及的工作项将转为此状态。",
+      "no_connections": "尚未连接任何仓库。",
+      "setup_title": "仓库已连接",
+      "setup_instructions": "请在仓库设置中添加此 Webhook，并开启推送和拉取请求事件。密钥仅显示一次。",
+      "webhook_url": "Webhook URL",
+      "webhook_secret": "密钥",
+      "copied": "已复制",
+      "done": "完成",
+      "disconnect": "断开连接",
+      "disconnect_title": "断开仓库连接",
+      "disconnect_message": "Plane 将停止接收来自 {repository} 的事件。工作项上的现有链接将保留。",
+      "connect_failed": "无法连接仓库。请检查 URL 以及仓库是否已连接。",
+      "disconnect_failed": "无法断开仓库连接",
+      "update_failed": "无法更新连接"
     }
   }
 }

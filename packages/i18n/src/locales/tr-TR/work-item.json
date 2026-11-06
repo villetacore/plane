@@ -346,9 +346,17 @@
         "message": "Bazı iş öğeleri için durum değişikliğine izin verilmiyor. Durum değişikliğine izin verildiğinden emin olun."
       }
     },
-    "upgrade_banner": {
-      "message": "Birden fazla iş öğesinin durumunu, önceliğini ve daha fazlasını tek seferde değiştirin. İşlem başına ortalama üç dakika kazanın.",
-      "cta": "One'a yükseltin"
+    "toolbar": {
+      "label": "Toplu işlemler",
+      "selected": "{count, plural, one {# iş öğesi seçildi} other {# iş öğesi seçildi}}",
+      "clear_selection": "Seçimi temizle",
+      "single_project_hint": "Durumu, atananları veya etiketleri değiştirmek için tek bir projeden iş öğeleri seçin",
+      "updated": "İş öğeleri güncellendi",
+      "archived": "İş öğeleri arşivlendi",
+      "deleted": "İş öğeleri silindi",
+      "delete_title": "İş öğelerini sil",
+      "delete_message": "{count, plural, one {# iş öğesi kalıcı olarak silinecek. Bu işlem geri alınamaz.} other {# iş öğesi kalıcı olarak silinecek. Bu işlem geri alınamaz.}}",
+      "update_failed": "İş öğeleri güncellenemiyor"
     }
   },
   "recurring_work_items": {

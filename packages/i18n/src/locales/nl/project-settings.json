@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git-integratie",
+      "description": "Koppel repository's zodat commits en pull requests die een werkitemsleutel noemen, zoals {identifier}-12, bij dat werkitem verschijnen.",
+      "connect": "Repository koppelen",
+      "provider": "Provider",
+      "repository_url": "Repository-URL",
+      "merged_state": "Status na merge",
+      "merged_state_hint": "Optioneel. Werkitems die in een gemergede pull request worden genoemd, gaan naar deze status.",
+      "no_connections": "Er zijn nog geen repository's gekoppeld.",
+      "setup_title": "Repository gekoppeld",
+      "setup_instructions": "Voeg deze webhook toe in de repository-instellingen en schakel push- en pull-request-gebeurtenissen in. Het geheim wordt maar één keer getoond.",
+      "webhook_url": "Webhook-URL",
+      "webhook_secret": "Geheim",
+      "copied": "Gekopieerd",
+      "done": "Klaar",
+      "disconnect": "Ontkoppelen",
+      "disconnect_title": "Repository ontkoppelen",
+      "disconnect_message": "Plane ontvangt geen gebeurtenissen meer van {repository}. Bestaande links bij werkitems blijven behouden.",
+      "connect_failed": "Kan de repository niet koppelen. Controleer de URL en of deze al gekoppeld is.",
+      "disconnect_failed": "Kan de repository niet ontkoppelen",
+      "update_failed": "Kan de koppeling niet bijwerken"
     }
   }
 }

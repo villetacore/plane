@@ -69,14 +69,6 @@
         "description": "Manage access to this workspace.",
         "leave_title": "Leave workspace?"
       },
-      "billing_and_plans": {
-        "heading": "Billing & Plans",
-        "description": "Choose your plan, manage subscriptions, and easily upgrade as your needs grow.",
-        "title": "Billing & Plans",
-        "current_plan": "Current plan",
-        "free_plan": "You are currently using the free plan",
-        "view_plans": "View plans"
-      },
       "exports": {
         "heading": "Exports",
         "description": "Export your project data in various formats and access your export history with download links.",

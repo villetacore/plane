@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integração com Git",
+      "description": "Conecte repositórios para que commits e pull requests que mencionem a chave de um item de trabalho, como {identifier}-12, apareçam nesse item.",
+      "connect": "Conectar repositório",
+      "provider": "Provedor",
+      "repository_url": "URL do repositório",
+      "merged_state": "Estado após o merge",
+      "merged_state_hint": "Opcional. Itens de trabalho mencionados em um pull request mesclado passam para este estado.",
+      "no_connections": "Nenhum repositório conectado ainda.",
+      "setup_title": "Repositório conectado",
+      "setup_instructions": "Adicione este webhook nas configurações do repositório e ative os eventos de push e pull request. O segredo é exibido apenas uma vez.",
+      "webhook_url": "URL do webhook",
+      "webhook_secret": "Segredo",
+      "copied": "Copiado",
+      "done": "Concluído",
+      "disconnect": "Desconectar",
+      "disconnect_title": "Desconectar repositório",
+      "disconnect_message": "O Plane deixará de receber eventos de {repository}. Os links existentes nos itens de trabalho permanecem.",
+      "connect_failed": "Não é possível conectar o repositório. Verifique a URL e se ele já está conectado.",
+      "disconnect_failed": "Não é possível desconectar o repositório",
+      "update_failed": "Não é possível atualizar a conexão"
     }
   }
 }

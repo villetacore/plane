@@ -346,9 +346,17 @@
         "message": "Statusänderung ist für einige Arbeitsaufgaben nicht erlaubt. Stellen Sie sicher, dass die Statusänderung zulässig ist."
       }
     },
-    "upgrade_banner": {
-      "message": "Status, Priorität und mehr für mehrere Arbeitselemente gleichzeitig ändern. Im Schnitt drei Minuten pro Vorgang sparen.",
-      "cta": "Upgrade auf One"
+    "toolbar": {
+      "label": "Massenaktionen",
+      "selected": "{count, plural, one {# Arbeitsaufgabe ausgewählt} other {# Arbeitsaufgaben ausgewählt}}",
+      "clear_selection": "Auswahl aufheben",
+      "single_project_hint": "Arbeitsaufgaben aus einem Projekt auswählen, um Status, Zuständige oder Labels zu ändern",
+      "updated": "Arbeitsaufgaben aktualisiert",
+      "archived": "Arbeitsaufgaben archiviert",
+      "deleted": "Arbeitsaufgaben gelöscht",
+      "delete_title": "Arbeitsaufgaben löschen",
+      "delete_message": "{count, plural, one {# Arbeitsaufgabe wird endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.} other {# Arbeitsaufgaben werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.}}",
+      "update_failed": "Arbeitsaufgaben können nicht aktualisiert werden"
     }
   },
   "recurring_work_items": {

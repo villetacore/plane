@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integrácia s Git",
+      "description": "Pripojte repozitáre, aby sa pri pracovnej položke zobrazovali commity a pull requesty, ktoré spomínajú jej kľúč, napríklad {identifier}-12.",
+      "connect": "Pripojiť repozitár",
+      "provider": "Poskytovateľ",
+      "repository_url": "URL repozitára",
+      "merged_state": "Stav po zlúčení",
+      "merged_state_hint": "Voliteľné. Pracovné položky spomenuté v zlúčenom pull requeste prejdú do tohto stavu.",
+      "no_connections": "Zatiaľ nie sú pripojené žiadne repozitáre.",
+      "setup_title": "Repozitár je pripojený",
+      "setup_instructions": "Pridajte tento webhook v nastaveniach repozitára a zapnite udalosti push a pull request. Tajný kľúč sa zobrazí iba raz.",
+      "webhook_url": "URL webhooku",
+      "webhook_secret": "Tajný kľúč",
+      "copied": "Skopírované",
+      "done": "Hotovo",
+      "disconnect": "Odpojiť",
+      "disconnect_title": "Odpojiť repozitár",
+      "disconnect_message": "Plane prestane prijímať udalosti z {repository}. Existujúce odkazy pri pracovných položkách zostanú.",
+      "connect_failed": "Repozitár nemožno pripojiť. Skontrolujte URL a či už nie je pripojený.",
+      "disconnect_failed": "Repozitár nemožno odpojiť",
+      "update_failed": "Pripojenie nemožno aktualizovať"
     }
   }
 }

@@ -346,9 +346,17 @@
         "message": "Perubahan status tidak diizinkan untuk beberapa item kerja. Pastikan perubahan status diizinkan."
       }
     },
-    "upgrade_banner": {
-      "message": "Ubah status, prioritas, dan lainnya untuk beberapa item kerja sekaligus. Hemat rata-rata tiga menit per operasi.",
-      "cta": "Tingkatkan ke One"
+    "toolbar": {
+      "label": "Tindakan massal",
+      "selected": "{count, plural, one {# item kerja dipilih} other {# item kerja dipilih}}",
+      "clear_selection": "Hapus pilihan",
+      "single_project_hint": "Pilih item kerja dari satu proyek untuk mengubah status, penerima tugas, atau label",
+      "updated": "Item kerja diperbarui",
+      "archived": "Item kerja diarsipkan",
+      "deleted": "Item kerja dihapus",
+      "delete_title": "Hapus item kerja",
+      "delete_message": "{count, plural, one {# item kerja akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.} other {# item kerja akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.}}",
+      "update_failed": "Tidak dapat memperbarui item kerja"
     }
   },
   "recurring_work_items": {

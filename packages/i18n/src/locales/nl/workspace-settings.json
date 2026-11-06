@@ -69,14 +69,6 @@
         "description": "Beheer de toegang tot deze werkruimte.",
         "leave_title": "Werkruimte verlaten?"
       },
-      "billing_and_plans": {
-        "heading": "Facturering & plannen",
-        "description": "Kies je plan, beheer abonnementen en upgrade eenvoudig naarmate je behoeften groeien.",
-        "title": "Facturering & plannen",
-        "current_plan": "Huidig plan",
-        "free_plan": "Je gebruikt momenteel het gratis plan",
-        "view_plans": "Plannen bekijken"
-      },
       "exports": {
         "heading": "Exports",
         "description": "Exporteer je projectgegevens in verschillende formaten en raadpleeg je exportgeschiedenis met downloadkoppelingen.",

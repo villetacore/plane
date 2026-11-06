@@ -79,3 +79,20 @@ export interface ISlackIntegrationData {
   };
   is_enterprise_install: boolean;
 }
+
+export type TGitProvider = "github" | "gitlab" | "gitea";
+
+export type TGitConnection = {
+  id: string;
+  provider: TGitProvider;
+  repository_url: string;
+  merged_state_id: string | null;
+  is_active: boolean;
+  created_at: string;
+  webhook_url: string;
+};
+
+/** The secret is returned only by the request that creates the connection. */
+export type TGitConnectionCreated = TGitConnection & {
+  webhook_secret: string;
+};

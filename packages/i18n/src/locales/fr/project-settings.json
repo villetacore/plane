@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Intégration Git",
+      "description": "Connectez des dépôts pour que les commits et pull requests mentionnant la clé d'un élément de travail, comme {identifier}-12, apparaissent sur cet élément.",
+      "connect": "Connecter un dépôt",
+      "provider": "Fournisseur",
+      "repository_url": "URL du dépôt",
+      "merged_state": "État après la fusion",
+      "merged_state_hint": "Facultatif. Les éléments de travail mentionnés dans une pull request fusionnée passent à cet état.",
+      "no_connections": "Aucun dépôt connecté pour le moment.",
+      "setup_title": "Dépôt connecté",
+      "setup_instructions": "Ajoutez ce webhook dans les paramètres du dépôt et activez les événements push et pull request. Le secret n'est affiché qu'une seule fois.",
+      "webhook_url": "URL du webhook",
+      "webhook_secret": "Secret",
+      "copied": "Copié",
+      "done": "Terminé",
+      "disconnect": "Déconnecter",
+      "disconnect_title": "Déconnecter le dépôt",
+      "disconnect_message": "Plane ne recevra plus les événements de {repository}. Les liens existants sur les éléments de travail sont conservés.",
+      "connect_failed": "Impossible de connecter le dépôt. Vérifiez l'URL et s'il n'est pas déjà connecté.",
+      "disconnect_failed": "Impossible de déconnecter le dépôt",
+      "update_failed": "Impossible de mettre à jour la connexion"
     }
   }
 }

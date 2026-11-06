@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git 整合",
+      "description": "連接程式碼儲存庫後，提及工作項目鍵（例如 {identifier}-12）的提交和提取要求將顯示在該工作項目上。",
+      "connect": "連接儲存庫",
+      "provider": "提供者",
+      "repository_url": "儲存庫 URL",
+      "merged_state": "合併後的狀態",
+      "merged_state_hint": "選填。已合併的提取要求中提及的工作項目將轉為此狀態。",
+      "no_connections": "尚未連接任何儲存庫。",
+      "setup_title": "儲存庫已連接",
+      "setup_instructions": "請在儲存庫設定中新增此 Webhook，並開啟推送和提取要求事件。密鑰僅顯示一次。",
+      "webhook_url": "Webhook URL",
+      "webhook_secret": "密鑰",
+      "copied": "已複製",
+      "done": "完成",
+      "disconnect": "中斷連接",
+      "disconnect_title": "中斷儲存庫連接",
+      "disconnect_message": "Plane 將停止接收來自 {repository} 的事件。工作項目上的現有連結將保留。",
+      "connect_failed": "無法連接儲存庫。請檢查 URL 以及儲存庫是否已連接。",
+      "disconnect_failed": "無法中斷儲存庫連接",
+      "update_failed": "無法更新連接"
     }
   }
 }

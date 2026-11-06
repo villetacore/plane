@@ -69,14 +69,6 @@
         "description": "Verwalten Sie den Zugriff auf diesen Arbeitsbereich.",
         "leave_title": "Arbeitsbereich verlassen?"
       },
-      "billing_and_plans": {
-        "heading": "Abrechnung und Pläne",
-        "description": "Wählen Sie Ihren Plan, verwalten Sie Abonnements und führen Sie bei Bedarf ein Upgrade durch.",
-        "title": "Abrechnung und Pläne",
-        "current_plan": "Aktueller Plan",
-        "free_plan": "Sie nutzen den kostenlosen Plan",
-        "view_plans": "Pläne anzeigen"
-      },
       "exports": {
         "heading": "Exporte",
         "description": "Exportieren Sie Ihre Projektdaten in verschiedenen Formaten und greifen Sie auf Ihre Exporthistorie mit Download-Links zu.",

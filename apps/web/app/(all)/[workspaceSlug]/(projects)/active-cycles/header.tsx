@@ -12,8 +12,6 @@ import { Breadcrumbs } from "@plane/blocks/breadcrumb";
 import { Header } from "@plane/blocks/layout";
 // components
 import { BreadcrumbLink } from "@/components/common/breadcrumb-link";
-// plane web components
-import { UpgradeBadge } from "@/components/workspace/upgrade-badge";
 
 export const WorkspaceActiveCycleHeader = observer(function WorkspaceActiveCycleHeader() {
   const { t } = useTranslation();
@@ -30,7 +28,6 @@ export const WorkspaceActiveCycleHeader = observer(function WorkspaceActiveCycle
             }
           />
         </Breadcrumbs>
-        <UpgradeBadge size="md" />
       </Header.LeftItem>
     </Header>
   );

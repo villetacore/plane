@@ -346,9 +346,17 @@
         "message": "一部の作業項目では状態の変更が許可されていません。状態の変更が許可されていることを確認してください。"
       }
     },
-    "upgrade_banner": {
-      "message": "複数の作業項目の状態や優先度などを一括で変更できます。1回の操作につき平均3分を節約できます。",
-      "cta": "One にアップグレード"
+    "toolbar": {
+      "label": "一括操作",
+      "selected": "{count, plural, one {# 件の作業項目を選択中} other {# 件の作業項目を選択中}}",
+      "clear_selection": "選択を解除",
+      "single_project_hint": "状態、担当者、ラベルを変更するには、1 つのプロジェクトの作業項目を選択してください",
+      "updated": "作業項目を更新しました",
+      "archived": "作業項目をアーカイブしました",
+      "deleted": "作業項目を削除しました",
+      "delete_title": "作業項目を削除",
+      "delete_message": "{count, plural, one {# 件の作業項目が完全に削除されます。この操作は元に戻せません。} other {# 件の作業項目が完全に削除されます。この操作は元に戻せません。}}",
+      "update_failed": "作業項目を更新できません"
     }
   },
   "recurring_work_items": {

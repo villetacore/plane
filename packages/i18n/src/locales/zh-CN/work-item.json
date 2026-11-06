@@ -346,9 +346,17 @@
         "message": "某些工作项的状态更改不被允许。请确保状态更改是被允许的。"
       }
     },
-    "upgrade_banner": {
-      "message": "一次性更改多个工作项的状态、优先级等。平均每次操作可节省三分钟。",
-      "cta": "升级到 One"
+    "toolbar": {
+      "label": "批量操作",
+      "selected": "{count, plural, one {已选择 # 个工作项} other {已选择 # 个工作项}}",
+      "clear_selection": "清除选择",
+      "single_project_hint": "请选择同一项目中的工作项以更改状态、负责人或标签",
+      "updated": "工作项已更新",
+      "archived": "工作项已归档",
+      "deleted": "工作项已删除",
+      "delete_title": "删除工作项",
+      "delete_message": "{count, plural, one {# 个工作项将被永久删除。此操作无法撤销。} other {# 个工作项将被永久删除。此操作无法撤销。}}",
+      "update_failed": "无法更新工作项"
     }
   },
   "recurring_work_items": {

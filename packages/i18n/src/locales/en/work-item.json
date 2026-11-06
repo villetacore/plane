@@ -346,9 +346,17 @@
         "message": "State change is not allowed for some work items. Ensure the state change is allowed."
       }
     },
-    "upgrade_banner": {
-      "message": "Change state, priority, and more for several work items at once. Save three minutes on an average per operation.",
-      "cta": "Upgrade to One"
+    "toolbar": {
+      "label": "Bulk actions",
+      "selected": "{count, plural, one {# work item selected} other {# work items selected}}",
+      "clear_selection": "Clear selection",
+      "single_project_hint": "Select work items from one project to change state, assignees, or labels",
+      "updated": "Work items updated",
+      "archived": "Work items archived",
+      "deleted": "Work items deleted",
+      "delete_title": "Delete work items",
+      "delete_message": "{count, plural, one {# work item will be permanently deleted. This action cannot be undone.} other {# work items will be permanently deleted. This action cannot be undone.}}",
+      "update_failed": "Unable to update work items"
     }
   },
   "recurring_work_items": {

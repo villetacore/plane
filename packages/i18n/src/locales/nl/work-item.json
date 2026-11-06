@@ -346,9 +346,17 @@
         "message": "Statuswijziging is niet toegestaan voor sommige werkitems. Zorg dat de statuswijziging is toegestaan."
       }
     },
-    "upgrade_banner": {
-      "message": "Wijzig de status, prioriteit en meer van meerdere werkitems tegelijk. Bespaar gemiddeld drie minuten per handeling.",
-      "cta": "Upgrade naar One"
+    "toolbar": {
+      "label": "Bulkacties",
+      "selected": "{count, plural, one {# werkitem geselecteerd} other {# werkitems geselecteerd}}",
+      "clear_selection": "Selectie wissen",
+      "single_project_hint": "Selecteer werkitems uit één project om de status, toegewezen personen of labels te wijzigen",
+      "updated": "Werkitems bijgewerkt",
+      "archived": "Werkitems gearchiveerd",
+      "deleted": "Werkitems verwijderd",
+      "delete_title": "Werkitems verwijderen",
+      "delete_message": "{count, plural, one {# werkitem wordt definitief verwijderd. Deze actie kan niet ongedaan worden gemaakt.} other {# werkitems worden definitief verwijderd. Deze actie kan niet ongedaan worden gemaakt.}}",
+      "update_failed": "Kan werkitems niet bijwerken"
     }
   },
   "recurring_work_items": {

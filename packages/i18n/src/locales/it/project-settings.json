@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integrazione Git",
+      "description": "Collegare i repository affinché commit e pull request che citano la chiave di un elemento di lavoro, come {identifier}-12, compaiano su quell'elemento.",
+      "connect": "Collega repository",
+      "provider": "Provider",
+      "repository_url": "URL del repository",
+      "merged_state": "Stato dopo il merge",
+      "merged_state_hint": "Facoltativo. Gli elementi di lavoro citati in una pull request unita passano a questo stato.",
+      "no_connections": "Nessun repository ancora collegato.",
+      "setup_title": "Repository collegato",
+      "setup_instructions": "Aggiungere questo webhook nelle impostazioni del repository e attivare gli eventi push e pull request. Il segreto viene mostrato una sola volta.",
+      "webhook_url": "URL del webhook",
+      "webhook_secret": "Segreto",
+      "copied": "Copiato",
+      "done": "Fatto",
+      "disconnect": "Scollega",
+      "disconnect_title": "Scollega repository",
+      "disconnect_message": "Plane smetterà di ricevere eventi da {repository}. I collegamenti esistenti sugli elementi di lavoro restano.",
+      "connect_failed": "Impossibile collegare il repository. Controllare l'URL e se è già collegato.",
+      "disconnect_failed": "Impossibile scollegare il repository",
+      "update_failed": "Impossibile aggiornare la connessione"
     }
   }
 }

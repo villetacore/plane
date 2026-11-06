@@ -5,6 +5,8 @@
 from django.urls import path
 
 from plane.app.views import (
+    GitConnectionEndpoint,
+    GitWebhookEndpoint,
     ProjectViewSet,
     DeployBoardViewSet,
     ProjectInvitationsViewset,
@@ -128,5 +130,20 @@ urlpatterns = [
         "workspaces/<str:slug>/projects/<uuid:project_id>/preferences/member/<uuid:member_id>/",
         ProjectMemberPreferenceEndpoint.as_view(),
         name="project-member-preference",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/git-connections/",
+        GitConnectionEndpoint.as_view(),
+        name="project-git-connections",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/git-connections/<uuid:pk>/",
+        GitConnectionEndpoint.as_view(),
+        name="project-git-connection",
+    ),
+    path(
+        "integrations/git/<uuid:connection_id>/webhook/",
+        GitWebhookEndpoint.as_view(),
+        name="git-webhook",
     ),
 ]

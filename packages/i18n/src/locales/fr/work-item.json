@@ -346,9 +346,17 @@
         "message": "Le changement d'état n'est pas autorisé pour certains éléments de travail. Assurez-vous que le changement d'état est autorisé."
       }
     },
-    "upgrade_banner": {
-      "message": "Modifiez l’état, la priorité et bien plus pour plusieurs éléments de travail à la fois. Économisez en moyenne trois minutes par opération.",
-      "cta": "Mettre à niveau vers One"
+    "toolbar": {
+      "label": "Actions groupées",
+      "selected": "{count, plural, one {# élément de travail sélectionné} many {# éléments de travail sélectionnés} other {# éléments de travail sélectionnés}}",
+      "clear_selection": "Effacer la sélection",
+      "single_project_hint": "Sélectionnez des éléments de travail d'un seul projet pour modifier l'état, les responsables ou les libellés",
+      "updated": "Éléments de travail mis à jour",
+      "archived": "Éléments de travail archivés",
+      "deleted": "Éléments de travail supprimés",
+      "delete_title": "Supprimer les éléments de travail",
+      "delete_message": "{count, plural, one {# élément de travail sera définitivement supprimé. Cette action est irréversible.} many {# éléments de travail seront définitivement supprimés. Cette action est irréversible.} other {# éléments de travail seront définitivement supprimés. Cette action est irréversible.}}",
+      "update_failed": "Impossible de mettre à jour les éléments de travail"
     }
   },
   "recurring_work_items": {

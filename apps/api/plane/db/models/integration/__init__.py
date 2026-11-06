@@ -9,4 +9,5 @@ from .github import (
     GithubIssueSync,
     GithubCommentSync,
 )
+from .git import GitConnection
 from .slack import SlackProjectSync

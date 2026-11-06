@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Tích hợp Git",
+      "description": "Kết nối kho mã để các commit và pull request nhắc đến khóa của mục công việc, chẳng hạn {identifier}-12, xuất hiện trên mục công việc đó.",
+      "connect": "Kết nối kho mã",
+      "provider": "Nhà cung cấp",
+      "repository_url": "URL kho mã",
+      "merged_state": "Trạng thái sau khi hợp nhất",
+      "merged_state_hint": "Không bắt buộc. Các mục công việc được nhắc đến trong pull request đã hợp nhất sẽ chuyển sang trạng thái này.",
+      "no_connections": "Chưa có kho mã nào được kết nối.",
+      "setup_title": "Đã kết nối kho mã",
+      "setup_instructions": "Thêm webhook này trong cài đặt kho mã và bật các sự kiện push và pull request. Mã bí mật chỉ hiển thị một lần.",
+      "webhook_url": "URL webhook",
+      "webhook_secret": "Mã bí mật",
+      "copied": "Đã sao chép",
+      "done": "Xong",
+      "disconnect": "Ngắt kết nối",
+      "disconnect_title": "Ngắt kết nối kho mã",
+      "disconnect_message": "Plane sẽ ngừng nhận sự kiện từ {repository}. Các liên kết hiện có trên mục công việc vẫn được giữ.",
+      "connect_failed": "Không thể kết nối kho mã. Hãy kiểm tra URL và xem kho mã đã được kết nối chưa.",
+      "disconnect_failed": "Không thể ngắt kết nối kho mã",
+      "update_failed": "Không thể cập nhật kết nối"
     }
   }
 }

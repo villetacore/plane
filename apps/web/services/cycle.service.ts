@@ -78,8 +78,8 @@ export class CycleService extends APIService {
       });
   }
 
-  async getWorkspaceCycles(workspaceSlug: string): Promise<ICycle[]> {
-    return this.get(`/api/workspaces/${workspaceSlug}/cycles/`)
+  async getWorkspaceCycles(workspaceSlug: string, cycleView?: "current"): Promise<ICycle[]> {
+    return this.get(`/api/workspaces/${workspaceSlug}/cycles/`, cycleView ? { params: { cycle_view: cycleView } } : {})
       .then((response) => response?.data)
       .catch((error) => {
         throw error?.response?.data;

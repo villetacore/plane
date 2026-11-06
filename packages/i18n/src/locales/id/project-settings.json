@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integrasi Git",
+      "description": "Hubungkan repositori agar commit dan pull request yang menyebut kunci item kerja, seperti {identifier}-12, muncul pada item kerja tersebut.",
+      "connect": "Hubungkan repositori",
+      "provider": "Penyedia",
+      "repository_url": "URL repositori",
+      "merged_state": "Status setelah merge",
+      "merged_state_hint": "Opsional. Item kerja yang disebut dalam pull request yang di-merge berpindah ke status ini.",
+      "no_connections": "Belum ada repositori yang terhubung.",
+      "setup_title": "Repositori terhubung",
+      "setup_instructions": "Tambahkan webhook ini di pengaturan repositori dan aktifkan peristiwa push serta pull request. Secret hanya ditampilkan sekali.",
+      "webhook_url": "URL webhook",
+      "webhook_secret": "Secret",
+      "copied": "Disalin",
+      "done": "Selesai",
+      "disconnect": "Putuskan",
+      "disconnect_title": "Putuskan repositori",
+      "disconnect_message": "Plane akan berhenti menerima peristiwa dari {repository}. Tautan yang ada pada item kerja tetap tersimpan.",
+      "connect_failed": "Tidak dapat menghubungkan repositori. Periksa URL dan apakah repositori sudah terhubung.",
+      "disconnect_failed": "Tidak dapat memutuskan repositori",
+      "update_failed": "Tidak dapat memperbarui koneksi"
     }
   }
 }

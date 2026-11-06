@@ -346,9 +346,17 @@
         "message": "Thay đổi trạng thái không được phép cho một số mục công việc. Đảm bảo thay đổi trạng thái được cho phép."
       }
     },
-    "upgrade_banner": {
-      "message": "Thay đổi trạng thái, mức ưu tiên và nhiều thứ khác cho nhiều mục công việc cùng lúc. Tiết kiệm trung bình ba phút cho mỗi thao tác.",
-      "cta": "Nâng cấp lên One"
+    "toolbar": {
+      "label": "Thao tác hàng loạt",
+      "selected": "{count, plural, one {Đã chọn # mục công việc} other {Đã chọn # mục công việc}}",
+      "clear_selection": "Bỏ chọn",
+      "single_project_hint": "Chọn các mục công việc từ một dự án để thay đổi trạng thái, người được giao hoặc nhãn",
+      "updated": "Đã cập nhật các mục công việc",
+      "archived": "Đã lưu trữ các mục công việc",
+      "deleted": "Đã xóa các mục công việc",
+      "delete_title": "Xóa các mục công việc",
+      "delete_message": "{count, plural, one {# mục công việc sẽ bị xóa vĩnh viễn. Không thể hoàn tác hành động này.} other {# mục công việc sẽ bị xóa vĩnh viễn. Không thể hoàn tác hành động này.}}",
+      "update_failed": "Không thể cập nhật mục công việc"
     }
   },
   "recurring_work_items": {

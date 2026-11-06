@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integracja z Git",
+      "description": "Połącz repozytoria, aby commity i pull requesty wspominające klucz elementu pracy, na przykład {identifier}-12, były widoczne przy tym elemencie.",
+      "connect": "Połącz repozytorium",
+      "provider": "Dostawca",
+      "repository_url": "URL repozytorium",
+      "merged_state": "Stan po scaleniu",
+      "merged_state_hint": "Opcjonalnie. Elementy pracy wspomniane w scalonym pull requeście przechodzą do tego stanu.",
+      "no_connections": "Nie połączono jeszcze żadnych repozytoriów.",
+      "setup_title": "Repozytorium połączone",
+      "setup_instructions": "Dodaj ten webhook w ustawieniach repozytorium i włącz zdarzenia push oraz pull request. Sekret jest wyświetlany tylko raz.",
+      "webhook_url": "URL webhooka",
+      "webhook_secret": "Sekret",
+      "copied": "Skopiowano",
+      "done": "Gotowe",
+      "disconnect": "Odłącz",
+      "disconnect_title": "Odłącz repozytorium",
+      "disconnect_message": "Plane przestanie odbierać zdarzenia z {repository}. Istniejące linki przy elementach pracy pozostaną.",
+      "connect_failed": "Nie można połączyć repozytorium. Sprawdź URL i czy nie jest już połączone.",
+      "disconnect_failed": "Nie można odłączyć repozytorium",
+      "update_failed": "Nie można zaktualizować połączenia"
     }
   }
 }

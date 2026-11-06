@@ -5,6 +5,8 @@
 # Python imports
 import copy
 import json
+import uuid
+from datetime import date
 
 # Django imports
 from django.contrib.postgres.aggregates import ArrayAgg
@@ -22,6 +24,7 @@ from django.db.models import (
     UUIDField,
     Value,
 )
+from django.db import transaction
 from django.db.models.functions import Coalesce
 from django.utils import timezone
 from django.utils.decorators import method_decorator
@@ -61,6 +64,7 @@ from plane.db.models import (
     ProjectMember,
     UserRecentVisit,
 )
+from plane.utils.error_codes import ERROR_CODES
 from plane.utils.filters import ComplexFilterBackend, IssueFilterSet
 from plane.utils.global_paginator import paginate
 from plane.utils.grouper import (
@@ -746,21 +750,11 @@ class ProjectUserDisplayPropertyEndpoint(BaseAPIView):
     @allow_permission([ROLE.ADMIN, ROLE.MEMBER, ROLE.GUEST])
     def patch(self, request, slug, project_id):
         try:
-            issue_property = ProjectUserProperty.objects.get(
-                user=request.user, 
-                project_id=project_id
-            )
+            issue_property = ProjectUserProperty.objects.get(user=request.user, project_id=project_id)
         except ProjectUserProperty.DoesNotExist:
-            issue_property = ProjectUserProperty.objects.create(
-                user=request.user, 
-                project_id=project_id
-            )
+            issue_property = ProjectUserProperty.objects.create(user=request.user, project_id=project_id)
 
-        serializer = ProjectUserPropertySerializer(
-            issue_property, 
-            data=request.data,
-            partial=True
-        )
+        serializer = ProjectUserPropertySerializer(issue_property, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -797,6 +791,127 @@ class BulkDeleteIssuesEndpoint(BaseAPIView):
             {"message": f"{total_issues} issues were deleted"},
             status=status.HTTP_200_OK,
         )
+
+
+class BulkIssueOperationsEndpoint(BaseAPIView):
+    """Apply the same property changes to several work items of one project.
+
+    Scalar properties replace the current value; ``label_ids`` and ``assignee_ids``
+    are added to the current values. The whole request succeeds or fails as a unit.
+    """
+
+    SCALAR_PROPERTIES = {"state_id", "priority", "start_date", "target_date"}
+    LIST_PROPERTIES = {"label_ids", "assignee_ids"}
+
+    @staticmethod
+    def _parse_date(value):
+        """Return a date for an ISO string, None for null; raises ValueError otherwise."""
+        if value is None:
+            return None
+        return date.fromisoformat(str(value))
+
+    @staticmethod
+    def _date_error(code):
+        return Response(
+            {"error_code": ERROR_CODES[code], "error_message": code},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    @allow_permission([ROLE.ADMIN, ROLE.MEMBER])
+    def post(self, request, slug, project_id):
+        issue_ids = request.data.get("issue_ids")
+        properties = request.data.get("properties")
+
+        if not isinstance(issue_ids, list) or not issue_ids:
+            return Response({"error": "Issue IDs are required"}, status=status.HTTP_400_BAD_REQUEST)
+        if not isinstance(properties, dict) or not properties:
+            return Response({"error": "Properties are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        unknown = set(properties) - self.SCALAR_PROPERTIES - self.LIST_PROPERTIES
+        if unknown:
+            return Response(
+                {"error": f"Unsupported properties: {', '.join(sorted(unknown))}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if "state_id" in properties and not properties["state_id"]:
+            return Response({"error": "State cannot be empty"}, status=status.HTTP_400_BAD_REQUEST)
+        for key in self.LIST_PROPERTIES & set(properties):
+            if not isinstance(properties[key], list):
+                return Response({"error": f"{key} must be a list"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            unique_issue_ids = {uuid.UUID(str(issue_id)) for issue_id in issue_ids}
+            start_date = self._parse_date(properties.get("start_date"))
+            target_date = self._parse_date(properties.get("target_date"))
+        except ValueError:
+            return Response({"error": "Invalid issue ID or date"}, status=status.HTTP_400_BAD_REQUEST)
+
+        issues = list(Issue.issue_objects.filter(workspace__slug=slug, project_id=project_id, pk__in=unique_issue_ids))
+        # Every requested work item has to be in this project, so a stale or foreign ID fails the request.
+        if len(issues) != len(unique_issue_ids):
+            return Response({"error": "Some work items were not found"}, status=status.HTTP_400_BAD_REQUEST)
+
+        if start_date and target_date and start_date > target_date:
+            return self._date_error("INVALID_ISSUE_DATES")
+
+        label_ids_by_issue = {}
+        for issue_id, label_id in IssueLabel.objects.filter(issue__in=issues).values_list("issue_id", "label_id"):
+            label_ids_by_issue.setdefault(issue_id, []).append(str(label_id))
+        assignee_ids_by_issue = {}
+        for issue_id, assignee_id in IssueAssignee.objects.filter(issue__in=issues).values_list(
+            "issue_id", "assignee_id"
+        ):
+            assignee_ids_by_issue.setdefault(issue_id, []).append(str(assignee_id))
+
+        serializers_with_context = []
+        for issue in issues:
+            effective_start = start_date if "start_date" in properties else issue.start_date
+            effective_target = target_date if "target_date" in properties else issue.target_date
+            if effective_start and effective_target and effective_start > effective_target:
+                return self._date_error(
+                    "INVALID_ISSUE_START_DATE" if "start_date" in properties else "INVALID_ISSUE_TARGET_DATE"
+                )
+
+            current_label_ids = label_ids_by_issue.get(issue.id, [])
+            current_assignee_ids = assignee_ids_by_issue.get(issue.id, [])
+            payload = {key: properties[key] for key in self.SCALAR_PROPERTIES & set(properties)}
+            if "label_ids" in properties:
+                payload["label_ids"] = list(dict.fromkeys([*current_label_ids, *map(str, properties["label_ids"])]))
+            if "assignee_ids" in properties:
+                payload["assignee_ids"] = list(
+                    dict.fromkeys([*current_assignee_ids, *map(str, properties["assignee_ids"])])
+                )
+
+            current_instance = {
+                **IssueSerializer(issue, fields=["id", "state_id", "priority", "start_date", "target_date"]).data,
+                "label_ids": current_label_ids,
+                "assignee_ids": current_assignee_ids,
+            }
+            serializer = IssueCreateSerializer(issue, data=payload, partial=True, context={"project_id": project_id})
+            if not serializer.is_valid():
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            serializers_with_context.append((issue, serializer, payload, current_instance))
+
+        with transaction.atomic():
+            for _, serializer, _, _ in serializers_with_context:
+                serializer.save()
+
+        origin = base_host(request=request, is_app=True)
+        epoch = int(timezone.now().timestamp())
+        for issue, _, payload, current_instance in serializers_with_context:
+            issue_activity.delay(
+                type="issue.activity.updated",
+                requested_data=json.dumps(payload, cls=DjangoJSONEncoder),
+                actor_id=str(request.user.id),
+                issue_id=str(issue.id),
+                project_id=str(project_id),
+                current_instance=json.dumps(current_instance, cls=DjangoJSONEncoder),
+                epoch=epoch,
+                notification=True,
+                origin=origin,
+            )
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class DeletedIssuesListViewSet(BaseAPIView):

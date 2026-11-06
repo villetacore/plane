@@ -44,6 +44,10 @@ from .views import (
     GiteaOauthInitiateEndpoint,
     GiteaCallbackSpaceEndpoint,
     GiteaOauthInitiateSpaceEndpoint,
+    OIDCCallbackEndpoint,
+    OIDCOauthInitiateEndpoint,
+    OIDCCallbackSpaceEndpoint,
+    OIDCOauthInitiateSpaceEndpoint,
 )
 
 urlpatterns = [
@@ -150,4 +154,9 @@ urlpatterns = [
         GiteaCallbackSpaceEndpoint.as_view(),
         name="space-gitea-callback",
     ),
+    ## OIDC
+    path("oidc/", OIDCOauthInitiateEndpoint.as_view(), name="oidc-initiate"),
+    path("oidc/callback/", OIDCCallbackEndpoint.as_view(), name="oidc-callback"),
+    path("spaces/oidc/", OIDCOauthInitiateSpaceEndpoint.as_view(), name="space-oidc-initiate"),
+    path("spaces/oidc/callback/", OIDCCallbackSpaceEndpoint.as_view(), name="space-oidc-callback"),
 ]

@@ -267,10 +267,6 @@ export const coreRoutes: RouteConfigEntry[] = [
             "./(all)/[workspaceSlug]/(settings)/settings/(workspace)/members/page.tsx"
           ),
           route(
-            ":workspaceSlug/settings/billing",
-            "./(all)/[workspaceSlug]/(settings)/settings/(workspace)/billing/page.tsx"
-          ),
-          route(
             ":workspaceSlug/settings/exports",
             "./(all)/[workspaceSlug]/(settings)/settings/(workspace)/exports/page.tsx"
           ),
@@ -343,6 +339,13 @@ export const coreRoutes: RouteConfigEntry[] = [
               route(
                 ":workspaceSlug/settings/projects/:projectId/automations",
                 "./(all)/[workspaceSlug]/(settings)/settings/projects/[projectId]/automations/page.tsx"
+              ),
+            ]),
+            // Project Git integration
+            layout("./(all)/[workspaceSlug]/(settings)/settings/projects/[projectId]/git/layout.tsx", [
+              route(
+                ":workspaceSlug/settings/projects/:projectId/git",
+                "./(all)/[workspaceSlug]/(settings)/settings/projects/[projectId]/git/page.tsx"
               ),
             ]),
           ]),

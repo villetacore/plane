@@ -24,7 +24,6 @@ import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { DropIndicator } from "@plane/blocks/common";
 import { cn } from "@plane/utils";
 // components
-import { UpgradeBadge } from "@/components/workspace/upgrade-badge";
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
 import { useUser, useUserPermissions } from "@/hooks/store/user";
@@ -210,11 +209,6 @@ export const ExtendedSidebarItem = observer(function ExtendedSidebarItem(props: 
             <ListItemLabel>{t(item.labelTranslationKey)}</ListItemLabel>
           </ListItemLink>
           <div className="flex shrink-0 items-center gap-2">
-            {item.key === "active_cycles" && (
-              <div className="flex-shrink-0">
-                <UpgradeBadge />
-              </div>
-            )}
             {isPinned ? (
               <Tooltip label={t("unpin")}>
                 <IconButton

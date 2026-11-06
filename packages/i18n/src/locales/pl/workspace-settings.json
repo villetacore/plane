@@ -69,14 +69,6 @@
         "description": "Zarządzaj dostępem do tego obszaru roboczego.",
         "leave_title": "Opuścić przestrzeń roboczą?"
       },
-      "billing_and_plans": {
-        "heading": "Rozliczenia i plany",
-        "description": "Wybierz plan, zarządzaj subskrypcjami i łatwo dokonaj uaktualnienia w miarę rozwoju Twoich potrzeb.",
-        "title": "Rozliczenia i plany",
-        "current_plan": "Obecny plan",
-        "free_plan": "Używasz bezpłatnego planu",
-        "view_plans": "Wyświetl plany"
-      },
       "exports": {
         "heading": "Eksporty",
         "description": "Eksportuj dane projektu w różnych formatach i uzyskaj dostęp do historii eksportów z linkami do pobrania.",

@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git 연동",
+      "description": "저장소를 연결하면 {identifier}-12와 같은 작업 항목 키를 언급한 커밋과 풀 리퀘스트가 해당 작업 항목에 표시됩니다.",
+      "connect": "저장소 연결",
+      "provider": "공급자",
+      "repository_url": "저장소 URL",
+      "merged_state": "병합 후 상태",
+      "merged_state_hint": "선택 사항입니다. 병합된 풀 리퀘스트에서 언급된 작업 항목이 이 상태로 이동합니다.",
+      "no_connections": "아직 연결된 저장소가 없습니다.",
+      "setup_title": "저장소가 연결되었습니다",
+      "setup_instructions": "저장소 설정에 이 웹훅을 추가하고 푸시 및 풀 리퀘스트 이벤트를 켜십시오. 시크릿은 한 번만 표시됩니다.",
+      "webhook_url": "웹훅 URL",
+      "webhook_secret": "시크릿",
+      "copied": "복사되었습니다",
+      "done": "완료",
+      "disconnect": "연결 해제",
+      "disconnect_title": "저장소 연결 해제",
+      "disconnect_message": "{repository}의 이벤트 수신을 중단합니다. 작업 항목의 기존 링크는 유지됩니다.",
+      "connect_failed": "저장소를 연결할 수 없습니다. URL과 이미 연결되어 있는지 확인하십시오.",
+      "disconnect_failed": "저장소 연결을 해제할 수 없습니다",
+      "update_failed": "연결을 업데이트할 수 없습니다"
     }
   }
 }

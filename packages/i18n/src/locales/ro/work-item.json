@@ -346,9 +346,17 @@
         "message": "Schimbarea stării nu este permisă pentru unele elemente de lucru. Asigură-te că schimbarea stării este permisă."
       }
     },
-    "upgrade_banner": {
-      "message": "Schimbă starea, prioritatea și multe altele pentru mai multe activități simultan. Economisește în medie trei minute per operațiune.",
-      "cta": "Treci la One"
+    "toolbar": {
+      "label": "Acțiuni în masă",
+      "selected": "{count, plural, one {# element de lucru selectat} few {# elemente de lucru selectate} other {# de elemente de lucru selectate}}",
+      "clear_selection": "Șterge selecția",
+      "single_project_hint": "Selectați elemente de lucru dintr-un singur proiect pentru a modifica starea, responsabilii sau etichetele",
+      "updated": "Elementele de lucru au fost actualizate",
+      "archived": "Elementele de lucru au fost arhivate",
+      "deleted": "Elementele de lucru au fost șterse",
+      "delete_title": "Ștergeți elementele de lucru",
+      "delete_message": "{count, plural, one {# element de lucru va fi șters definitiv. Această acțiune nu poate fi anulată.} few {# elemente de lucru vor fi șterse definitiv. Această acțiune nu poate fi anulată.} other {# de elemente de lucru vor fi șterse definitiv. Această acțiune nu poate fi anulată.}}",
+      "update_failed": "Imposibil de actualizat elementele de lucru"
     }
   },
   "recurring_work_items": {

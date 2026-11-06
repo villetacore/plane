@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git integration",
+      "description": "Connect repositories so that commits and pull requests that mention a work item key, such as {identifier}-12, appear on that work item.",
+      "connect": "Connect repository",
+      "provider": "Provider",
+      "repository_url": "Repository URL",
+      "merged_state": "State after merge",
+      "merged_state_hint": "Optional. Work items mentioned in a merged pull request move to this state.",
+      "no_connections": "No repositories are connected yet.",
+      "setup_title": "Repository connected",
+      "setup_instructions": "Add this webhook in the repository settings and turn on push and pull request events. The secret is shown only once.",
+      "webhook_url": "Webhook URL",
+      "webhook_secret": "Secret",
+      "copied": "Copied",
+      "done": "Done",
+      "disconnect": "Disconnect",
+      "disconnect_title": "Disconnect repository",
+      "disconnect_message": "Plane will stop receiving events from {repository}. Existing links on work items stay.",
+      "connect_failed": "Unable to connect the repository. Check the URL and whether it is already connected.",
+      "disconnect_failed": "Unable to disconnect the repository",
+      "update_failed": "Unable to update the connection"
     }
   }
 }

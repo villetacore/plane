@@ -139,15 +139,7 @@ export type TIssuesResponse = {
 
 export type TBulkIssueProperties = Pick<
   TIssue,
-  | "state_id"
-  | "priority"
-  | "label_ids"
-  | "assignee_ids"
-  | "start_date"
-  | "target_date"
-  | "module_ids"
-  | "cycle_id"
-  | "estimate_point"
+  "state_id" | "priority" | "label_ids" | "assignee_ids" | "start_date" | "target_date"
 >;
 
 export type TBulkOperationsPayload = {

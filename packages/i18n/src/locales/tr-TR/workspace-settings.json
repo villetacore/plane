@@ -69,14 +69,6 @@
         "description": "Bu çalışma alanına erişimi yönetin.",
         "leave_title": "Çalışma alanından ayrılmak istiyor musunuz?"
       },
-      "billing_and_plans": {
-        "heading": "Faturalandırma ve Planlar",
-        "description": "Planınızı seçin, abonelikleri yönetin ve ihtiyaçlarınız arttıkça kolayca yükseltin.",
-        "title": "Faturalandırma ve Planlar",
-        "current_plan": "Mevcut plan",
-        "free_plan": "Şu anda ücretsiz planı kullanıyorsunuz",
-        "view_plans": "Planları görüntüle"
-      },
       "exports": {
         "heading": "Dışa Aktarımlar",
         "description": "Proje verilerinizi çeşitli formatlarda dışa aktarın ve indirme bağlantılarıyla dışa aktarma geçmişinize erişin.",

@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git 連携",
+      "description": "リポジトリを接続すると、{identifier}-12 のような作業項目キーに言及したコミットやプルリクエストがその作業項目に表示されます。",
+      "connect": "リポジトリを接続",
+      "provider": "プロバイダー",
+      "repository_url": "リポジトリ URL",
+      "merged_state": "マージ後の状態",
+      "merged_state_hint": "任意です。マージされたプルリクエストで言及された作業項目がこの状態に移動します。",
+      "no_connections": "接続されたリポジトリはまだありません。",
+      "setup_title": "リポジトリを接続しました",
+      "setup_instructions": "リポジトリの設定にこの Webhook を追加し、プッシュとプルリクエストのイベントを有効にしてください。シークレットは一度だけ表示されます。",
+      "webhook_url": "Webhook URL",
+      "webhook_secret": "シークレット",
+      "copied": "コピーしました",
+      "done": "完了",
+      "disconnect": "接続解除",
+      "disconnect_title": "リポジトリの接続を解除",
+      "disconnect_message": "{repository} からのイベントの受信を停止します。作業項目の既存のリンクは残ります。",
+      "connect_failed": "リポジトリを接続できません。URL と、すでに接続済みでないかを確認してください。",
+      "disconnect_failed": "リポジトリの接続を解除できません",
+      "update_failed": "接続を更新できません"
     }
   }
 }

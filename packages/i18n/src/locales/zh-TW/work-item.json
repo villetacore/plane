@@ -346,9 +346,17 @@
         "message": "某些工作項目不允許狀態變更。請確保狀態變更是允許的。"
       }
     },
-    "upgrade_banner": {
-      "message": "一次性變更多個工作事項的狀態、優先順序等。平均每次操作可節省三分鐘。",
-      "cta": "升級到 One"
+    "toolbar": {
+      "label": "批次操作",
+      "selected": "{count, plural, one {已選取 # 個工作項目} other {已選取 # 個工作項目}}",
+      "clear_selection": "清除選取",
+      "single_project_hint": "請選取同一專案中的工作項目以變更狀態、負責人或標籤",
+      "updated": "工作項目已更新",
+      "archived": "工作項目已歸檔",
+      "deleted": "工作項目已刪除",
+      "delete_title": "刪除工作項目",
+      "delete_message": "{count, plural, one {# 個工作項目將被永久刪除。此操作無法復原。} other {# 個工作項目將被永久刪除。此操作無法復原。}}",
+      "update_failed": "無法更新工作項目"
     }
   },
   "recurring_work_items": {

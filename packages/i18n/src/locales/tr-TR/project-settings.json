@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Git entegrasyonu",
+      "description": "{identifier}-12 gibi bir iş öğesi anahtarından bahseden commit ve pull request'lerin o iş öğesinde görünmesi için depoları bağlayın.",
+      "connect": "Depo bağla",
+      "provider": "Sağlayıcı",
+      "repository_url": "Depo URL'si",
+      "merged_state": "Birleştirme sonrası durum",
+      "merged_state_hint": "İsteğe bağlı. Birleştirilen bir pull request'te bahsedilen iş öğeleri bu duruma geçer.",
+      "no_connections": "Henüz bağlı depo yok.",
+      "setup_title": "Depo bağlandı",
+      "setup_instructions": "Bu webhook'u depo ayarlarına ekleyin ve push ile pull request olaylarını açın. Gizli anahtar yalnızca bir kez gösterilir.",
+      "webhook_url": "Webhook URL'si",
+      "webhook_secret": "Gizli anahtar",
+      "copied": "Kopyalandı",
+      "done": "Bitti",
+      "disconnect": "Bağlantıyı kes",
+      "disconnect_title": "Depo bağlantısını kes",
+      "disconnect_message": "Plane, {repository} kaynağından olay almayı durduracak. İş öğelerindeki mevcut bağlantılar kalır.",
+      "connect_failed": "Depo bağlanamıyor. URL'yi ve zaten bağlı olup olmadığını kontrol edin.",
+      "disconnect_failed": "Depo bağlantısı kesilemiyor",
+      "update_failed": "Bağlantı güncellenemiyor"
     }
   }
 }

@@ -527,6 +527,29 @@
           }
         }
       }
+    },
+    "git_integration": {
+      "label": "Git",
+      "heading": "Integrare Git",
+      "description": "Conectați depozite pentru ca modificările și solicitările de extragere care menționează cheia unui element de lucru, de exemplu {identifier}-12, să apară la acel element.",
+      "connect": "Conectați depozitul",
+      "provider": "Furnizor",
+      "repository_url": "URL-ul depozitului",
+      "merged_state": "Starea după îmbinare",
+      "merged_state_hint": "Opțional. Elementele de lucru menționate într-o solicitare de extragere îmbinată trec în această stare.",
+      "no_connections": "Nu există încă depozite conectate.",
+      "setup_title": "Depozit conectat",
+      "setup_instructions": "Adăugați acest webhook în setările depozitului și activați evenimentele push și pull request. Secretul este afișat o singură dată.",
+      "webhook_url": "URL webhook",
+      "webhook_secret": "Secret",
+      "copied": "Copiat",
+      "done": "Gata",
+      "disconnect": "Deconectați",
+      "disconnect_title": "Deconectați depozitul",
+      "disconnect_message": "Plane nu va mai primi evenimente de la {repository}. Legăturile existente la elementele de lucru rămân.",
+      "connect_failed": "Depozitul nu poate fi conectat. Verificați URL-ul și dacă nu este deja conectat.",
+      "disconnect_failed": "Depozitul nu poate fi deconectat",
+      "update_failed": "Conexiunea nu poate fi actualizată"
     }
   }
 }
